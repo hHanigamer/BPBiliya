@@ -1,0 +1,36 @@
+name: Send BPB
+
+on:
+  schedule:
+    - cron: '1 * * * *'  # هر ساعت یکبار، دقیقاً روی ساعت صفر
+  workflow_dispatch:  # این یه دکمه برای اجرای دستی اضافه می‌کنه
+
+# ===== جلوگیری از اجرای همزمان =====
+concurrency:
+  group: send-bpb-workflow
+  cancel-in-progress: true
+# ====================================
+
+jobs:
+  run-reminder:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      
+    - name: Run reminder script
+      run: python bot.py
+      env:
+        SOROUSH_PHONE: ${{ secrets.SOROUSH_PHONE }}
+        TARGET_USER: ${{ secrets.TARGET_USER }}
+        SOROUSH_SESSION: ${{ secrets.SOROUSH_SEESION }}
+
