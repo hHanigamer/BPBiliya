@@ -49,7 +49,7 @@ async def point_task(client, recipient):
             await client.send_message(recipient, 'بوسش کن')
             kiss = 0
         if bare >= 15:
-            await client.send_message(recipient, 'برداشت بره ناقلا')
+            await client.send_message(recipient, 'برداشت بز زبل')
             bare = 0
         if kar >= 15:
             await client.send_message(recipient, 'جمع آوری کارخانه')
