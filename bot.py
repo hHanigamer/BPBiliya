@@ -25,14 +25,12 @@ async def send_safe(client, recipient, message):
 async def point_task(client, recipient):
     """ارسال پیام‌های نقطه‌ای هر ۶۰ تا ۷۰ ثانیه"""
     logging.info("شروع تسک ارسال پیام‌ها...")
-    ma = alaf = naz = kar = tamiz = shird = shirf = gard = kiss = gaza = bare = alafyab = zebelgaza = legendary = 0
+    naz = kar = tamiz = shird = shirf = gard = kiss = gaza = bare = alafyab = zebelgaza = legendary = 0
 
     while True:
         try:
             await asyncio.sleep(random.uniform(60, 70))
-            
-            ma += 1
-            alaf += 1
+          
             naz += 1
             kar += 1
             tamiz += 1
@@ -46,12 +44,6 @@ async def point_task(client, recipient):
             zebelgaza += 1
             legendary += 1
             
-            if ma >= 5:
-                await send_safe(client, recipient, 'مع')
-                ma = 0
-            if alaf >= 7:
-                await send_safe(client, recipient, 'علف')
-                alaf = 0
             if gaza >= 35:
                 await send_safe(client, recipient, 'غذا بده همه')
                 gaza = 0
