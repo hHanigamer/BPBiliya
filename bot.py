@@ -11,7 +11,7 @@ logging.basicConfig(
 )
 
 # رشته سشن شما (مطمئن شوید این رشته معتبر و به‌روز است)
-SS = "1AwASaW0tc2VydmVyLnNwbHVzLmlyAbt9tRljzCs_IYaB7hclQ8ujS7PqHjRMsjSkddxOiRNN_LsmwGQMLF4w7tApcqnod1UiVLImJ_rZZ15JhpyUzZshbWS9bvE3c6A-PbYqykec4POAwrFUudEUFKTVZSCh0rt7c6EtO4mXUOfedXanATv_uZSn5Wx8kvzvRAm3l6607TgqzVdE7fg7VDE8LgRJGa0auyr8OgbXtCzlh7bBdR0bkwxwahVB8rAIZgeplDeXZlAUWZn1qJ0ifl5dypDbxoMjpGCwxrLaCSjyPin2dAQwUj-v93iGjRH3ujOHdQW31tJpGmLRnz3N4WSDW2_aBR9L-98hBWI9iIwoKI-mOKD8"
+SS = "SESSION_STRING"
 
 
 async def send_safe(client, recipient, message):
