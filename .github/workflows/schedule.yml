@@ -1,38 +1,29 @@
-name: Send BPB2
+name: Soroush Bot
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '1 * * * *'  # هر ساعت یکبار، دقیقاً روی دقیقه ۱
-  workflow_dispatch:      # دکمه اجرای دستی
-
-# ===== جلوگیری از اجرای همزمان =====
-concurrency:
-  group: send-bpb-workflow
-  cancel-in-progress: true
-# ====================================
+    - cron: '0 */6 * * *'
 
 jobs:
-  run-reminder:
+  run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 350   # ⬅️ اضافه شده: حداکثر زمان اجرا (کمی کمتر از ۶ ساعت)
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install splusthon
 
-    - name: Run reminder script
-      run: python bot.py
-      env:
-        SOROUSH_PHONE: ${{ secrets.SOROUSH_PHONE }}
-        TARGET_USER: ${{ secrets.TARGET_USER }}
-        SOROUSH_SESSION: ${{ secrets.SOROUSH_SEESION }}
+      - name: Run bot
+        env:
+          SESSION_STRING: ${{ secrets.SESSION_STRING }}
+        run: python bot.py
