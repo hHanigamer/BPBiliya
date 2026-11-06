@@ -11,7 +11,7 @@ logging.basicConfig(
 )
 
 # رشته سشن شما (مطمئن شوید این رشته معتبر و به‌روز است)
-SS = "SESSION_STRING"
+SS = os.environ.get("SESSION_STRING")
 
 
 async def send_safe(client, recipient, message):
@@ -92,7 +92,7 @@ async def main():
     try:
         await client.start()
         logging.info("کلاینت با موفقیت متصل شد.")
-        recipient = "@BozyBoz"   # ⬅️ آیدی گیرنده را اینجا وارد کنید
+        recipient = "@bozpoint2"   # ⬅️ آیدی گیرنده را اینجا وارد کنید
         await point_task(client, recipient)
     except Exception as e:
         logging.critical(f"خطای بحرانی در اجرای برنامه: {e}")
