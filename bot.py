@@ -49,7 +49,7 @@ async def main():
     try:
         await client.start()
         logging.info("کلاینت متصل شد.")
-        recipient = "@bozpoint2"
+        recipient = "@BetaBoz"
         await point_task(client, recipient)
     except Exception as e:
         logging.critical(f"خطای بحرانی: {e}")
